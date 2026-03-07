@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websitenya Fabyan</title>
+  </head>
+  <body>
+    <!doctype html>
+    <html lang="id">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sistem Gudang Fabyan</title>
+      </head>
+      <body>
+        <header>
+          <img src="logo.png" alt="Logo Sistem" width="80" />
+          <h1>Sistem Gudang Fabyan</h1>
+        </header>
+        <hr />
+        <nav>
+          <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#input-barang">Barang Masuk</a></li>
+            <li><a href="#daftar-barang">Daftar Barang</a></li>
+            <li><a href="#laporan">Penjualan Tertinggi</a></li>
+          </ul>
+        </nav>
+
+        <hr />
+
+        <main>
+          <section id="input-barang">
+            <h2>Form Input Barang Masuk</h2>
+            <form action="#" method="POST">
+              <label for="kode">Kode Barang:</label><br />
+              <input type="text" id="kode" name="kode" /><br /><br />
+
+              <label for="nama">Nama Barang:</label><br />
+              <input type="text" id="nama" name="nama" /><br /><br />
+
+              <label for="kategori">Kategori:</label><br />
+              <select id="kategori" name="kategori">
+                <option value="Mebel">Mebel</option>
+                <option value="Perhiasan">Perhiasan</option>
+                <option value="Aksesoris">Aksesoris</option></select
+              ><br /><br />
+
+              <label for="jumlah">Jumlah:</label><br />
+              <input type="number" id="jumlah" name="jumlah" /><br /><br />
+
+              <label for="satuan">Satuan:</label><br />
+              <input type="text" id="satuan" name="satuan" /><br /><br />
+
+              <label for="harga">Harga Satuan:</label><br />
+              <input type="number" id="harga" name="harga" /><br /><br />
+
+              <label for="tanggal">Tanggal Masuk:</label><br />
+              <input type="date" id="tanggal" name="tanggal" /><br /><br />
+
+              <label for="supplier">Supplier:</label><br />
+              <input type="text" id="supplier" name="supplier" /><br /><br />
+
+              <label for="foto">Foto Barang:</label><br />
+              <input type="file" id="foto" name="foto" /><br /><br />
+
+              <label for="keterangan">Keterangan:</label><br />
+              <textarea
+                id="keterangan"
+                name="keterangan"
+                rows="4"
+                cols="40"
+              ></textarea
+              ><br /><br />
+
+              <button type="reset">Batal</button>
+              <button type="submit">Simpan Data</button>
+            </form>
+          </section>
+
+          <hr />
+
+          <section id="daftar-barang">
+            <h2>Daftar 5 Barang Masuk Terakhir</h2>
+            <table border="10">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Kode</th>
+                  <th>Nama Barang</th>
+                  <th>Kategori</th>
+                  <th>Jumlah</th>
+                  <th>Supplier</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>ID-001</td>
+                  <td>Meja Tamu</td>
+                  <td>Mebel</td>
+                  <td>3 Unit</td>
+                  <td>CV Kayu Indah</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>ID-002</td>
+                  <td>Kursi Kayu</td>
+                  <td>Mebel</td>
+                  <td>6 Unit</td>
+                  <td>CV Kayu Indah</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>ID-003</td>
+                  <td>Cincin Emas</td>
+                  <td>Perhiasan</td>
+                  <td>10 Pcs</td>
+                  <td>Toko Emas Makmur</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>ID-004</td>
+                  <td>Kalung Perak</td>
+                  <td>Perhiasan</td>
+                  <td>7 Pcs</td>
+                  <td>Toko Emas Makmur</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>ID-005</td>
+                  <td>Jam Tangan</td>
+                  <td>Aksesoris</td>
+                  <td>12 Pcs</td>
+                  <td>Toko Fashion Jaya</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>ID-006</td>
+                  <td>Kacamata Hitam</td>
+                  <td>Aksesoris</td>
+                  <td>8 Pcs</td>
+                  <td>Toko Fashion Jaya</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </main>
+
+        <hr />
+
+        <aside id="laporan">
+          <h3>Statistik Barang</h3>
+          <p>Total Barang: 105</p>
+          <p>Kategori Elektronik: 15</p>
+          <p>Kategori ATK: 50</p>
+        </aside>
+        <hr />
+
+        <footer>
+          <p>
+            © 2023 | Dibuat oleh Fabyan untuk tugas Tatap Muka Pemrograman Web.
+          </p>
+        </footer>
+      </body>
+    </html>
+  </body>
+</html>

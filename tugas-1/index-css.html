@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sistem Manajemen Barang</title>
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 15px;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      header a {
+        border-radius: 5px;
+        padding: 10px;
+        width: fit-content;
+      }
+
+      header img {
+        display: block;
+      }
+
+      nav {
+        background-color: #0e87ff;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+
+      input,
+      textarea {
+        width: 300px;
+        padding: 5px;
+      }
+
+      button {
+        padding: 8px 15px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th {
+        background: #2c72b8;
+        color: white;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      aside {
+        background: white;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+      }
+
+      footer {
+        background: #0c78e4;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="" id="logo">
+        <img src="logo.png" alt="Logo Sistem" width="100" />
+      </a>
+      <h1>Sistem Manajemen Barang</h1>
+      <nav>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#barang-masuk">Barang Masuk</a></li>
+          <li><a href="#daftar-barang">Daftar Barang</a></li>
+          <li><a href="#laporan">Penjualan Tertinggi</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="barang-masuk">
+      <section>
+        <h2>Form Input Barang Masuk</h2>
+
+        <form>
+          <label>Kode Barang:</label><br />
+          <input type="text" name="kode" /><br /><br />
+
+          <label>Nama Barang:</label><br />
+          <input type="text" name="nama" /><br /><br />
+
+          <label>Kategori:</label><br />
+          <input type="text" name="kategori" /><br /><br />
+
+          <label>Jumlah:</label><br />
+          <input type="number" name="jumlah" /><br /><br />
+
+          <label>Satuan:</label><br />
+          <input type="text" name="satuan" /><br /><br />
+
+          <label>Harga:</label><br />
+          <input type="number" name="harga" /><br /><br />
+
+          <label>Tanggal Masuk:</label><br />
+          <input type="date" name="tanggal" /><br /><br />
+
+          <label>Supplier:</label><br />
+          <input type="text" name="supplier" /><br /><br />
+
+          <label>Foto Barang:</label><br />
+          <input type="file" name="foto" /><br /><br />
+
+          <label>Keterangan:</label><br />
+          <textarea name="keterangan"></textarea><br /><br />
+
+          <button type="submit">Simpan</button>
+        </form>
+      </section>
+
+      <section id="daftar-barang">
+        <h2>Daftar Barang Masuk</h2>
+
+        <table border="1">
+          <tr>
+            <th>Kode</th>
+            <th>Nama</th>
+            <th>Kategori</th>
+            <th>Jumlah</th>
+            <th>Supplier</th>
+          </tr>
+
+          <tr>
+            <td>B001</td>
+            <td>Laptop</td>
+            <td>Elektronik</td>
+            <td>10</td>
+            <td>PT Teknologi</td>
+          </tr>
+
+          <tr>
+            <td>B002</td>
+            <td>Mouse</td>
+            <td>Aksesoris</td>
+            <td>25</td>
+            <td>CV Komputer</td>
+          </tr>
+
+          <tr>
+            <td>B003</td>
+            <td>Keyboard</td>
+            <td>Aksesoris</td>
+            <td>15</td>
+            <td>CV Komputer</td>
+          </tr>
+
+          <tr>
+            <td>B004</td>
+            <td>Printer</td>
+            <td>Elektronik</td>
+            <td>5</td>
+            <td>PT Office</td>
+          </tr>
+
+          <tr>
+            <td>B005</td>
+            <td>Kertas A4</td>
+            <td>ATK</td>
+            <td>50</td>
+            <td>PT Stationery</td>
+          </tr>
+        </table>
+      </section>
+    </main>
+
+    <aside id="laporan">
+      <h3>Statistik Barang</h3>
+      <p>Total Barang: 105</p>
+      <p>Kategori Elektronik: 15</p>
+      <p>Kategori ATK: 50</p>
+    </aside>
+
+    <footer>
+      <p>© 2023 | Dibuat oleh Fabyan untuk tugas Tatap Muka Pemrograman Web.</p>
+    </footer>
+  </body>
+</html>
