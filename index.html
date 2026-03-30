@@ -17,16 +17,6 @@
             fontFamily: {
               sans: ['"Plus Jakarta Sans"', "sans-serif"],
             },
-            colors: {
-              brand: {
-                50: "#eff6ff",
-                100: "#dbeafe",
-                500: "#3b82f6",
-                600: "#2563eb",
-                700: "#1d4ed8",
-                900: "#1e3a8a",
-              },
-            },
             animation: {
               float: "float 6s ease-in-out infinite",
               "float-delayed": "float 6s ease-in-out 3s infinite",
@@ -71,7 +61,6 @@
           <a href="">
             <img src="Libmate.png" width="130" alt="Logo LibMate" />
           </a>
-
           <div class="hidden md:flex space-x-8 items-center">
             <a
               href="#home"
@@ -146,7 +135,7 @@
           class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none"
         >
           <div
-            class="absolute top-20 left-10 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
+            class="absolute top-20 left-10 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
           ></div>
           <div
             class="absolute top-20 right-10 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
@@ -938,25 +927,21 @@
       </section>
       <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <!-- Title -->
           <div class="mb-10">
             <h2 class="text-3xl font-bold text-slate-900 mb-2">
-              Riwayat Pemesanan Ruangan
+              Pemesanan Ruangan Sebelumnya
             </h2>
             <p class="text-slate-500">
-              Cari dan filter data pemesanan ruang diskusi Anda
+              Cari dan filter data pemesanan ruang perpustakaan.
             </p>
           </div>
 
-          <!-- Layout -->
           <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <!-- SIDEBAR FILTER -->
             <div
               class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"
             >
               <h3 class="font-semibold text-slate-900 mb-4">Filter</h3>
 
-              <!-- Filter Lantai -->
               <div class="mb-6">
                 <p class="text-sm font-medium text-slate-600 mb-2">Lantai</p>
                 <div class="space-y-2">
@@ -975,7 +960,6 @@
                 </div>
               </div>
 
-              <!-- Filter Status -->
               <div>
                 <p class="text-sm font-medium text-slate-600 mb-2">Status</p>
                 <div class="space-y-2">
@@ -995,9 +979,7 @@
               </div>
             </div>
 
-            <!-- CONTENT -->
             <div class="lg:col-span-3">
-              <!-- SEARCH FORM -->
               <div class="mb-6 flex flex-col md:flex-row gap-4">
                 <input
                   type="text"
