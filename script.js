@@ -1,13 +1,19 @@
 // Script Dashboard
-lucide.createIcons();
+if (typeof lucide !== "undefined") {
+  lucide.createIcons();
+}
 
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const sidebar = document.getElementById("sidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
+
 let isSidebarOpen = false;
 
 function toggleSidebar() {
+  if (!sidebar || !sidebarOverlay) return;
+
   isSidebarOpen = !isSidebarOpen;
+
   if (isSidebarOpen) {
     sidebar.classList.remove("-translate-x-full");
     sidebarOverlay.classList.remove("hidden");
@@ -19,9 +25,13 @@ function toggleSidebar() {
   }
 }
 
-mobileMenuBtn.addEventListener("click", toggleSidebar);
-sidebarOverlay.addEventListener("click", toggleSidebar);
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener("click", toggleSidebar);
+}
 
+if (sidebarOverlay) {
+  sidebarOverlay.addEventListener("click", toggleSidebar);
+}
 const STORAGE_KEY = "LIBMATE_BOOKING_DATA";
 
 let bookingData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
