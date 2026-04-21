@@ -1,3 +1,27 @@
+// Script Dashboard
+lucide.createIcons();
+
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const sidebar = document.getElementById("sidebar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+let isSidebarOpen = false;
+
+function toggleSidebar() {
+  isSidebarOpen = !isSidebarOpen;
+  if (isSidebarOpen) {
+    sidebar.classList.remove("-translate-x-full");
+    sidebarOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  } else {
+    sidebar.classList.add("-translate-x-full");
+    sidebarOverlay.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+}
+
+mobileMenuBtn.addEventListener("click", toggleSidebar);
+sidebarOverlay.addEventListener("click", toggleSidebar);
+
 const STORAGE_KEY = "LIBMATE_BOOKING_DATA";
 
 let bookingData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
@@ -17,6 +41,7 @@ let bookingData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
   },
 ];
 
+const searchHistory = document.getElementById("search-history");
 const form = document.getElementById("booking-form");
 const tableBody = document.getElementById("table-body");
 const emptyState = document.getElementById("empty-state");
@@ -33,7 +58,17 @@ const inputs = {
   date: document.getElementById("input-date"),
   editId: document.getElementById("edit-id"),
 };
+if (searchHistory) {
+  searchHistory.addEventListener("input", function () {
+    const keyword = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#history-table tbody tr");
 
+    rows.forEach((row) => {
+      const text = row.innerText.toLowerCase();
+      row.style.display = text.includes(keyword) ? "" : "none";
+    });
+  });
+}
 // generate id
 const generateNextId = () => {
   if (bookingData.length === 0) return "BK-001";

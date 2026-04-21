@@ -102,11 +102,16 @@
                 ></span>
               </span>
             </a>
+            <a
+              href="/dashboard.html"
+              class="text-sm font-medium text-slate-500 hover:text-orange-600 transition-colors"
+              >Dashboard</a
+            >
           </div>
 
           <div class="hidden md:flex animate-bounce items-center space-x-4">
             <a
-              href="#"
+              href="/dashboard.html"
               class="px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-semibold hover:bg-slate-800 shadow-xl shadow-slate-900/20 transition-all hover:-translate-y-0.5"
               >Masuk</a
             >
@@ -1001,6 +1006,7 @@
               <div class="mb-6 flex flex-col md:flex-row gap-4">
                 <input
                   type="text"
+                  id="search-history"
                   placeholder="Cari nama ruang atau tanggal..."
                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none transition"
                 />
@@ -1014,7 +1020,7 @@
               <div
                 class="overflow-x-auto bg-white rounded-2xl border border-slate-200 shadow-sm"
               >
-                <table class="min-w-full text-sm text-left">
+                <table id="history-table" class="min-w-full text-sm text-left">
                   <thead class="bg-slate-100 text-slate-700 uppercase text-xs">
                     <tr>
                       <th class="px-6 py-3">Nama Ruang</th>
@@ -1445,6 +1451,13 @@
                   href="#ai-assistant"
                   class="hover:text-orange-600 transition-colors"
                   >Asisten AI</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/dashboard.html"
+                  class="hover:text-orange-600 transition-colors"
+                  >Dashboard</a
                 >
               </li>
             </ul>
