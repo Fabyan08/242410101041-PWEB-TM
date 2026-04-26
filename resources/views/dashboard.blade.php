@@ -76,7 +76,7 @@
             </div>
 
             <div class="p-4 mt-auto">
-                <a href="index.html"
+                <a href="/"
                     class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-red-50 hover:text-red-500 transition-all">
                     <i data-lucide="log-out" class="w-5 h-5"></i>
                     <span class="font-medium">Keluar</span>
