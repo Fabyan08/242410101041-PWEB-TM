@@ -15,3 +15,5 @@ Route::get('/tentang/ruangan/{lantai}/{kapasitas}', [TentangController::class, '
 
 
 Route::get('/ruangan/{lantai}/{id}', [TentangController::class, 'show'])->name('ruangan.show');
+
+Route::get('/hitung/{a}/{b}', fn($a, $b) => $a + $b)->name('hitung');
