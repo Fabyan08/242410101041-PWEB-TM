@@ -65,7 +65,6 @@
         const menu = document.getElementById('mobile-menu');
 
         btn.addEventListener('click', () => {
-            // Menambah atau menghapus class 'hidden' dari menu dropdown
             menu.classList.toggle('hidden');
         });
     });
