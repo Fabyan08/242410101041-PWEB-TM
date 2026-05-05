@@ -12,6 +12,8 @@
                 <a href="/tentang"
                     class="text-sm font-semibold @if (request()->is('tentang')) text-orange-600 @else text-slate-500 @endif hover:text-orange-600 transition-colors">Tentang
                     Kami</a>
+                <a href="/kontak"
+                    class="text-sm font-semibold @if (request()->is('kontak')) text-orange-600 @else text-slate-500 @endif hover:text-orange-600 transition-colors">Kontak</a>
                 <a href="{{ route('dashboard') }}"
                     class="text-sm font-semibold text-slate-500 hover:text-orange-600 transition-colors">Dashboard</a>
             </div>
@@ -43,6 +45,11 @@
             <a href="/tentang"
                 class="block px-3 py-2 rounded-md text-base font-medium @if (request()->is('tentang')) text-orange-600 bg-orange-50 @else text-slate-600 hover:text-orange-600 hover:bg-orange-50 @endif transition-colors">
                 Tentang Kami
+            </a>
+            {{-- Kontak --}}
+            <a href="/kontak"
+                class="block px-3 py-2 rounded-md text-base font-medium @if (request()->is('kontak')) text-orange-600 bg-orange-50 @else text-slate-600 hover:text-orange-600 hover:bg-orange-50 @endif transition-colors">
+                Kontak
             </a>
             <a href="{{ route('dashboard') }}"
                 class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-orange-600 hover:bg-orange-50 transition-colors">

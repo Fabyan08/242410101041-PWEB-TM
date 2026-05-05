@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('Libmate.png') }}" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+@section('title', 'Tentang | LibMate Universitas Jember')
 
-        .bg-pattern {
-            background-image: radial-gradient(#f97316 0.5px, transparent 0.5px), radial-gradient(#f97316 0.5px, #ffffff 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            opacity: 0.05;
-        }
-    </style>
-</head>
-
-<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
-
-    @include('components.navbar')
+@section('content')
 
 
     <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
@@ -43,8 +20,7 @@
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
                 Mendigitalkan Ruang,<br>
-                <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">Mengkoneksikan
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">Mengkoneksikan
                     Ide.</span>
             </h1>
             <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -239,8 +215,7 @@
                 class="bg-gradient-to-br from-orange-600 to-orange-500 rounded-3xl p-10 md:p-16 text-center shadow-2xl shadow-orange-500/30 relative overflow-hidden">
                 <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl">
                 </div>
-                <div
-                    class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl">
+                <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl">
                 </div>
 
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">Siap Untuk Berdiskusi Hari
@@ -256,10 +231,4 @@
             </div>
         </div>
     </section>
-
-    @include('components.footer')
-
-
-</body>
-
-</html>
+@endsection

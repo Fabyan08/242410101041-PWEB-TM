@@ -1,71 +1,8 @@
-<!doctype html>
-<html lang="id" class="scroll-smooth">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LibMate | Pemesanan Ruang Diskusi Perpustakaan Berbasis AI</title>
-    {{-- <script src="https://cdn.tailwindcss.com"></script>  --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <link rel="shortcut icon" href="{{ asset('Libmate.png') }}" type="image/x-icon" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', "sans-serif"],
-                    },
-                    colors: {
-                        brand: {
-                            50: "#eff6ff",
-                            100: "#dbeafe",
-                            500: "#3b82f6",
-                            600: "#2563eb",
-                            700: "#1d4ed8",
-                            900: "#1e3a8a",
-                        },
-                    },
-                    animation: {
-                        float: "float 6s ease-in-out infinite",
-                        "float-delayed": "float 6s ease-in-out 3s infinite",
-                        blob: "blob 7s infinite",
-                    },
-                    keyframes: {
-                        float: {
-                            "0%, 100%": {
-                                transform: "translateY(0)"
-                            },
-                            "50%": {
-                                transform: "translateY(-20px)"
-                            },
-                        },
-                        blob: {
-                            "0%": {
-                                transform: "translate(0px, 0px) scale(1)"
-                            },
-                            "33%": {
-                                transform: "translate(30px, -50px) scale(1.1)"
-                            },
-                            "66%": {
-                                transform: "translate(-20px, 20px) scale(0.9)"
-                            },
-                            "100%": {
-                                transform: "translate(0px, 0px) scale(1)"
-                            },
-                        },
-                    },
-                },
-            },
-        };
-    </script>
+@section('title', 'Home | LibMate Universitas Jember')
 
-</head>
-
-<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
-    @include('components.navbar')
+@section('content')
     <main style="background-image: url('{{ asset('unej.png') }}')"
         class="md:bg-[length:200%] bg-[length:1000%] bg-top bg-no-repeat md:min-h-screen">
         <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -181,8 +118,7 @@
                                         <div class="h-3 w-24 bg-slate-200 rounded mb-3"></div>
                                         <div class="h-8 w-16 bg-slate-300 rounded"></div>
                                     </div>
-                                    <div
-                                        class="h-24 rounded-xl bg-slate-50 border border-slate-100 p-4 hidden md:block">
+                                    <div class="h-24 rounded-xl bg-slate-50 border border-slate-100 p-4 hidden md:block">
                                         <div class="h-3 w-16 bg-slate-200 rounded mb-3"></div>
                                         <div class="h-8 w-10 bg-slate-300 rounded"></div>
                                     </div>
@@ -225,11 +161,10 @@
 
                     <div
                         class="absolute -left-6 top-1/4 glass-panel rounded-xl p-4 shadow-xl z-20 flex items-center gap-4 animate-float hidden lg:flex">
-                        <div
-                            class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                                </path>
                             </svg>
                         </div>
                         <div class="text-left">
@@ -720,8 +655,7 @@
                     </p>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div
-                            class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
                             <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -738,8 +672,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div
-                            class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
                             <div class="p-3 bg-orange-50 text-orange-600 rounded-xl">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -755,8 +688,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div
-                            class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
                             <div class="p-3 bg-red-50 text-red-600 rounded-xl">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -906,8 +838,7 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
                     class="bg-gradient-to-br from-orange-600 to-orange-800 rounded-3xl p-10 md:p-16 text-center shadow-2xl relative overflow-hidden">
-                    <div
-                        class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl">
+                    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl">
                     </div>
                     <div
                         class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl">
@@ -932,8 +863,50 @@
             </div>
         </section>
     </main>
-@include('components.footer')
-</body>
+@endsection
+@push('scripts')
+    <script>
+        (function() {
+
+            const message = "{{ session('welcome_toast') ?? 'Selamat Datang di LibMate UNEJ! 👋' }}";
 
 
-</html>
+            const toaster = document.createElement('div');
+
+
+            toaster.className = "fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] pointer-events-auto " +
+                "bg-slate-900/90 backdrop-blur-md text-white px-6 py-3 rounded-full " +
+                "shadow-2xl flex items-center gap-3 transform transition-all duration-700 " +
+                "translate-y-20 opacity-0";
+
+
+            toaster.innerHTML = `
+            <div class="bg-orange-500 p-1.5 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z"></path>
+                </svg>
+            </div>
+            <span class="text-sm font-medium whitespace-nowrap">${message}</span>
+        `;
+
+
+            document.body.appendChild(toaster);
+
+
+            setTimeout(() => {
+
+                toaster.classList.remove('translate-y-20', 'opacity-0');
+                toaster.classList.add('translate-y-0', 'opacity-100');
+
+
+                setTimeout(() => {
+                    toaster.classList.remove('translate-y-0', 'opacity-100');
+                    toaster.classList.add('translate-y-20', 'opacity-0');
+
+
+                    setTimeout(() => toaster.remove(), 700);
+                }, 4000);
+            }, 300);
+        })();
+    </script>
+@endpush

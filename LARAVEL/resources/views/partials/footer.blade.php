@@ -17,7 +17,8 @@
                         <a href="/" class="hover:text-orange-600 transition-colors">Beranda</a>
                     </li>
                     <li>
-                        <a href="{{ route('tentang') }}" class="hover:text-orange-600 transition-colors">Tentang Kami</a>
+                        <a href="{{ route('tentang') }}" class="hover:text-orange-600 transition-colors">Tentang
+                            Kami</a>
                     </li>
 
                     <li>

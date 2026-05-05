@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <title>Detail Ruangan</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+@section('title', 'Home | LibMate Universitas Jember')
 
-<body class="bg-slate-50 font-sans">
-
-    @include('components.navbar')
+@section('content')
 
     <section class="bg-gradient-to-b pt-32 from-orange-50 to-white py-12">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
             <div class="rounded-2xl overflow-hidden shadow-lg">
-                <img id="mainImage" src="{{ asset('/perpus/' . $ruangan->gambar) }}"
-                    class="w-full h-full object-cover">
+                <img id="mainImage" src="{{ asset('/perpus/' . $ruangan->gambar) }}" class="w-full h-full object-cover">
             </div>
 
             <div>
@@ -47,11 +39,4 @@
         </div>
     </section>
 
-
-
-    @include('components.footer')
-
-
-</body>
-
-</html>
+@endsection
