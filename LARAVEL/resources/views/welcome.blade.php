@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home | LibMate Universitas Jember')
+@section('title', 'Dashboard | LibMate Universitas Jember')
 
 @section('content')
     <main style="background-image: url('{{ asset('unej.png') }}')"

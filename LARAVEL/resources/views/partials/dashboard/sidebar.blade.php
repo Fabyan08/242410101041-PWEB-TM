@@ -3,7 +3,7 @@
      <div
          class="h-20 flex items-center gap-3 px-8 text-orange-400 font-bold text-2xl border-b border-slate-50 lg:border-none mt-16 lg:mt-0">
          <a href="">
-             <img src="Libmate.png" width="130" alt="Logo LibMate" />
+             <img src={{ asset('Libmate.png') }} width="130" alt="Logo LibMate" />
          </a>
      </div>
 
@@ -26,6 +26,13 @@
    {{ request()->routeIs('manajemen-ruang') ? 'bg-orange-400 text-white shadow-md shadow-orange-200' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900' }}">
              <i data-lucide="users" class="w-5 h-5"></i>
              <span class="font-medium">Manajemen Ruangan</span>
+         </a>
+         {{-- manajemne mahasiswa --}}
+         <a href="{{ route('manajemen-mahasiswa') }}"
+             class="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all text-nowrap
+   {{ request()->routeIs('manajemen-mahasiswa*') ? 'bg-orange-400 text-white shadow-md shadow-orange-200' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900' }}">
+             <i data-lucide="users" class="w-5 h-5"></i>
+             <span class="font-medium">Manajemen Mahasiswa</span>
          </a>
      </div>
 

@@ -36,7 +36,7 @@
                 <div class="absolute right-20 -bottom-10 w-32 h-32 bg-white opacity-10 rounded-full"></div>
 
                 <div class="relative z-10 text-white">
-                    <h2 class="text-2xl font-bold mb-2">Selamat Pagi, Rara! ✨</h2>
+                    <h2 class="text-2xl font-bold mb-2">Selamat Pagi, {{ Auth::user()->name }}! ✨</h2>
                     <p class="text-orange-50 text-sm md:text-base max-w-3xl">
                         Siap untuk mengelola ruang diskusi hari ini? Pastikan semua
                         pemesanan terorganisir dengan baik dan ruang selalu siap untuk
