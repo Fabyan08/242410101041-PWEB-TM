@@ -25,6 +25,10 @@ class ManajemenMahasiswa extends Controller
 
         $mahasiswa->appends(['search' => $search]);
 
+        if ($request->ajax()) {
+            return view('dashboard.manajemen-mahasiswa.partials.rows', compact('mahasiswa'))->render();
+        }
+
         return view('dashboard.manajemen-mahasiswa.index', compact('mahasiswa', 'search'));
     }
     /**

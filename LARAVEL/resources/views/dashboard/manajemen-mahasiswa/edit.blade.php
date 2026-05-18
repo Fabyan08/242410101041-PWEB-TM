@@ -23,11 +23,21 @@
             </header>
 
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <form action="{{ route('manajemen-mahasiswa.update', $mahasiswa->id) }}" method="POST" class="p-8 space-y-6">
+                <form action="{{ route('manajemen-mahasiswa.update', $mahasiswa->id) }}" enctype="multipart/form-data" method="POST"
+                    class="p-8 space-y-6">
                     @csrf
                     @method('PUT')
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2 md:col-span-2">
+                            <label for="foto" class="text-sm font-semibold text-slate-700">Foto Profil</label>
+                            <input type="file" name="foto" id="foto"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-4 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100 transition-all @error('foto') border-red-500 @enderror ">
+                            <p class="text-[10px] text-slate-400">*Format: JPG, PNG. Maksimal 2MB.</p>
+                        </div>
+                        @error('foto')
+                            <p class="text-xs text-red-500">{{ $message }}</p>
+                        @enderror
                         {{-- Nama Lengkap --}}
                         <div class="space-y-2">
                             <label for="nama" class="text-sm font-semibold text-slate-700">Nama Lengkap</label>

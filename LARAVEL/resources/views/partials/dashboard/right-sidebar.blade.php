@@ -1,11 +1,11 @@
 <aside class="hidden xl:flex w-80 bg-white border-l border-slate-100 flex-col h-full overflow-y-auto">
     <div class="p-8 pb-6 flex flex-col items-center border-b border-slate-50">
         <div class="relative mb-4">
-            <img src="https://ui-avatars.com/api/?name=Rara+A&background=FB923C&color=fff&size=120" alt="Profile"
+            <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=FB923C&color=fff&size=120" alt="Profile"
                 class="w-24 h-24 rounded-full border-4 border-white shadow-md" />
             <div class="absolute bottom-1 right-1 w-4 h-4 bg-emerald-400 border-2 border-white rounded-full"></div>
         </div>
-        <h3 class="text-lg font-bold text-slate-800">Rara Anindita</h3>
+        <h3 class="text-lg font-bold text-slate-800">{{ Auth::user()->name }}</h3>
         <p class="text-xs text-slate-400 mt-1">Admin Perpustakaan</p>
 
         <button

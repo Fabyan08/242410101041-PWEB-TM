@@ -25,21 +25,17 @@
             </header>
 
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                {{-- Toolbar Tabel dengan Form Pencarian --}}
                 <div
                     class="p-5 border-b border-slate-100 bg-slate-50/50 flex flex-col md:flex-row gap-4 justify-between items-center">
 
-                    {{-- Form Pencarian GET --}}
                     <form action="{{ route('manajemen-mahasiswa') }}" method="GET" class="relative w-full md:w-96">
                         <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
                         <input type="text" name="search" value="{{ request('search') }}"
                             placeholder="Cari nama mahasiswa atau NIM..."
                             class="w-full bg-white border border-slate-200 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 transition-all" />
 
-                        {{-- Tombol submit tersembunyi (opsional, karena tekan Enter di input sudah mensubmit form) --}}
                         <button type="submit" class="hidden"></button>
                     </form>
-                    {{-- reset --}}
                     @if (request('search'))
                         <a href="{{ route('manajemen-mahasiswa') }}"
                             class="text-sm text-slate-500 hover:text-slate-900 flex items-center gap-1.5 transition">
@@ -50,7 +46,6 @@
 
                 </div>
 
-                {{-- Tabel Kelola Mahasiswa --}}
                 <div class="overflow-x-auto">
                     <table class="min-w-full text-left border-collapse">
                         <thead
@@ -69,8 +64,6 @@
                             @forelse ($mahasiswa as $mhs)
                                 <tr class="hover:bg-slate-50/80 transition-colors">
                                     <td class="flex items-center justify-center">
-                                        {{-- <img src="{{ asset('storage/' . $mhs->foto) }}" alt="Foto {{ $mhs->nama }}"
-                                            class="w-full h-full object-cover"> --}}
                                         <div
                                             class="w-12 h-12 rounded-full overflow-hidden bg-slate-100 flex items-center justify-center">
                                             @if ($mhs->foto)
@@ -161,3 +154,58 @@
         </div>
     </main>
 @endsection
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const tableBody = document.getElementById('table-body');
+            const loadingIcon = document.getElementById('search-loading');
+
+
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+            let debounceTimer;
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value;
+
+
+                loadingIcon.classList.remove('hidden');
+
+
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(async () => {
+                    try {
+
+                        const response = await fetch(
+                            `{{ route('manajemen-mahasiswa') }}?search=${encodeURIComponent(query)}`, {
+                                method: 'GET',
+                                headers: {
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                    'X-CSRF-TOKEN': csrfToken 'Accept': 'text/html'
+                                }
+                            });
+
+                        if (!response.ok) throw new Error('Gagal memuat data');
+
+                        const html = await response.text();
+
+
+                        tableBody.innerHTML = html;
+
+
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+
+                    } catch (error) {
+                        console.error('Error during live search:', error);
+                    } finally {
+
+                        loadingIcon.classList.add('hidden');
+                    }
+                }, 500);
+            });
+        });
+    </script>
+@endpush
