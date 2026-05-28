@@ -15,7 +15,7 @@
                         <span class="text-slate-600">Detail Profil</span>
                     </div>
                     <h1 class="text-2xl font-bold text-slate-800">
-                        Profil Anggota
+                        Profil Mahasiswa
                     </h1>
                 </div>
 
@@ -40,7 +40,12 @@
                         <div class="relative w-32 h-32 mx-auto mb-6">
                             <div
                                 class="w-full h-full bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-4xl font-bold border-4 border-white shadow-sm">
-                                {{ strtoupper(substr($mahasiswa->nama, 0, 2)) }}
+                                @if ($mahasiswa->foto)
+                                    <img src="{{ asset('storage/' . $mahasiswa->foto) }}" alt="Foto Mahasiswa"
+                                        class="w-full h-full object-cover rounded-full">
+                                @else
+                                    {{ strtoupper(substr($mahasiswa->nama, 0, 1)) }}
+                                @endif
                             </div>
                             <div
                                 class="absolute bottom-1 right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
@@ -106,7 +111,7 @@
                                     </dt>
                                     <dd class="text-slate-800 font-semibold flex items-center gap-2">
                                         <i data-lucide="user" class="w-4 h-4 text-slate-300"></i>
-                                        {{ $mahasiswa->nama }}
+                                        {{ $mahasiswa->name }}
                                     </dd>
                                 </div>
 

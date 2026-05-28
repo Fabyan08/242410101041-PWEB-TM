@@ -23,7 +23,8 @@
             </header>
 
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <form action="{{ route('manajemen-mahasiswa.store') }}" method="POST" enctype="multipart/form-data" class="p-8 space-y-6">
+                <form action="{{ route('manajemen-mahasiswa.store') }}" method="POST" enctype="multipart/form-data"
+                    class="p-8 space-y-6">
                     @csrf
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -39,12 +40,12 @@
                         @enderror
                         {{-- Nama Lengkap --}}
                         <div class="space-y-2">
-                            <label for="nama" class="text-sm font-semibold text-slate-700">Nama Lengkap</label>
-                            <input type="text" name="nama" id="nama" value="{{ old('nama') }}"
+                            <label for="name" class="text-sm font-semibold text-slate-700">Nama Lengkap</label>
+                            <input type="text" name="name" id="name" value="{{ old('name') }}"
                                 placeholder="Masukkan nama sesuai KTM"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 transition-all @error('nama') border-red-400 @enderror"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 transition-all @error('name') border-red-400 @enderror"
                                 required>
-                            @error('nama')
+                            @error('name')
                                 <p class="text-xs text-red-500">{{ $message }}</p>
                             @enderror
                         </div>

@@ -23,7 +23,7 @@
          {{-- Manajemen Ruangan --}}
          <a href="{{ route('manajemen-ruang') }}"
              class="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all
-   {{ request()->routeIs('manajemen-ruang') ? 'bg-orange-400 text-white shadow-md shadow-orange-200' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900' }}">
+   {{ request()->routeIs('manajemen-ruang*') ? 'bg-orange-400 text-white shadow-md shadow-orange-200' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900' }}">
              <i data-lucide="users" class="w-5 h-5"></i>
              <span class="font-medium">Manajemen Ruangan</span>
          </a>
@@ -33,6 +33,20 @@
    {{ request()->routeIs('manajemen-mahasiswa*') ? 'bg-orange-400 text-white shadow-md shadow-orange-200' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900' }}">
              <i data-lucide="users" class="w-5 h-5"></i>
              <span class="font-medium">Manajemen Mahasiswa</span>
+         </a>
+         {{-- manajemne peminjaman --}}
+         <a href="{{ route('manajemen-peminjaman') }}"
+             class="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all text-nowrap
+    {{ request()->routeIs('manajemen-peminjaman*') ? 'bg-orange-400 text-white shadow-md shadow-orange-200' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900' }}">
+             <i data-lucide="calendar" class="w-5 h-5"></i>
+             <span class="font-medium">Peminjaman</span>
+         </a>
+         {{-- manajemen kontak --}}
+         <a href="{{ route('manajemen-kontak') }}"
+             class="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all text-nowrap
+    {{ request()->routeIs('manajemen-kontak*') ? 'bg-orange-400 text-white shadow-md shadow-orange-200' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900' }}">
+             <i data-lucide="phone" class="w-5 h-5"></i>
+             <span class="font-medium">Kontak</span>
          </a>
      </div>
 

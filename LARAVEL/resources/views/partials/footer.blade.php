@@ -26,8 +26,8 @@
                             Kami</a>
                     </li>
                     <li>
-                        <a href="{{ route('dashboard') }}"
-                            class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Dashboard</a>
+                        <a href="{{ route('kontak') }}"
+                            class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Kontak</a>
                     </li>
                 </ul>
             </div>
@@ -36,16 +36,7 @@
                 <h4 class="font-bold text-slate-900 dark:text-white mb-4 transition-colors">Bantuan</h4>
                 <ul class="space-y-3 text-sm">
                     <li>
-                        <a href="#"
-                            class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Pusat Bantuan</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Aturan
-                            Perpustakaan</a>
-                    </li>
-                    <li>
-                        <a href="#"
+                        <a href="{{ route('kontak') }}"
                             class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Hubungi Admin</a>
                     </li>
                 </ul>
@@ -68,7 +59,7 @@
     </div>
 </footer>
 
-<div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+{{-- <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
     <div id="floating-chat"
         class="mb-4 w-[320px] md:w-[350px] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden transform scale-95 opacity-0 pointer-events-none transition-all duration-300 origin-bottom-right">
 
@@ -93,13 +84,46 @@
                 </div>
             </div>
 
-            <button onclick="toggleChat()"
-                class="text-white hover:text-orange-200 transition-colors focus:outline-none">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
+
+            <div id="floating-chat"
+                class="fixed bottom-6 right-6 w-[350px] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-50 opacity-0 scale-95 pointer-events-none">
+                <div
+                    class="bg-gradient-to-r from-orange-500 to-orange-600 p-4 flex items-center justify-between text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                            <span class="text-orange-600 font-bold">AI</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">LibMate Assistant</h4>
+                            <p class="text-[10px] text-orange-100">Online • Siap membantu</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleChat()" class="hover:text-orange-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="p-4 h-64 overflow-y-auto bg-slate-50 flex flex-col gap-3">
+                    <div
+                        class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-slate-700 w-fit max-w-[80%]">
+                        Halo! Ada yang bisa saya bantu terkait pemesanan ruang hari ini?
+                    </div>
+                </div>
+
+                <div class="p-3 border-t flex gap-2">
+                    <input type="text" placeholder="Ketik pesan..."
+                        class="flex-1 text-sm border-none bg-slate-100 rounded-full px-4 py-2 focus:ring-2 focus:ring-orange-500">
+                    <button class="bg-orange-600 text-white p-2 rounded-full hover:bg-orange-500">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="p-4 h-64 overflow-y-auto bg-slate-50 dark:bg-slate-900 flex flex-col gap-4 transition-colors">
@@ -124,11 +148,10 @@
             </div>
         </div>
 
-        <div
-            class="p-3 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 flex gap-2 transition-colors">
-            <input type="text" placeholder="Ketik pesan..."
-                class="flex-1 bg-slate-100 dark:bg-slate-900 text-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 rounded-full py-2 px-4 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors" />
-            <button
+        <div class="p-3 bg-white border-t border-slate-200 flex gap-2 transition-colors">
+            <input type="text" id="chat-input" placeholder="Ketik pesan..."
+                class="flex-1 text-sm bg-slate-100 rounded-full py-2 px-4 focus:outline-none" />
+            <button id="send-btn"
                 class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white hover:bg-orange-500 transition-colors shrink-0 shadow-md">
                 <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -138,19 +161,5 @@
         </div>
     </div>
 
-    <button onclick="toggleChat()" id="chat-fab"
-        class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full shadow-2xl shadow-orange-500/40 flex items-center justify-center text-white hover:scale-110 hover:-translate-y-1 transition-all duration-300 relative group border-2 border-white/20 dark:border-slate-800/50 focus:outline-none focus:ring-4 focus:ring-orange-500/30 z-50">
-        <svg class="w-6 h-6 transform transition-transform group-hover:-rotate-12" fill="none" stroke="currentColor"
-            viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
-            </path>
-        </svg>
 
-        <span class="absolute top-0 right-0 flex h-3.5 w-3.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span
-                class="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white dark:border-slate-900 transition-colors"></span>
-        </span>
-    </button>
-</div>
+</div> --}}

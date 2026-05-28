@@ -31,6 +31,7 @@ class Ruangan extends Model
 
     public function fasilitas(): BelongsToMany
     {
-        return $this->belongsToMany(Fasilitas::class, 'fasilitas_ruangan');
+        return $this->belongsToMany(Fasilitas::class, 'fasilitas_ruangan', 'ruangan_id', 'fasilitas_id')
+            ->withTimestamps();
     }
 }

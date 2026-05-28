@@ -29,9 +29,22 @@
             </p>
         </div>
     </section>
-
     <section class="py-16 bg-white dark:bg-slate-900 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            @if (session('success'))
+                <div class="mb-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                    <ul class="list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 <div>
                     <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6 transition-colors">Informasi Kontak
@@ -105,36 +118,49 @@
                     </div>
                     <div
                         class="relative bg-white dark:bg-slate-800 p-8 md:p-10 rounded-3xl ring-1 ring-slate-900/5 dark:ring-white/5 shadow-2xl transition-colors">
-                        <form action="#" class="space-y-6">
+                        <form action="{{ route('kontak.store') }}" method="POST" class="space-y-6">
+                            @csrf
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label
                                         class="text-sm font-bold text-slate-900 dark:text-slate-200 transition-colors">Nama
                                         Lengkap</label>
-                                    <input type="text" placeholder="Masukkan nama"
+                                    <input type="text" name="nama" placeholder="Masukkan nama"
                                         class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 dark:text-white dark:placeholder-slate-500 border-transparent focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none">
+                                    @error('nama')
+                                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="space-y-2">
                                     <label
                                         class="text-sm font-bold text-slate-900 dark:text-slate-200 transition-colors">Email
                                         Mahasiswa</label>
-                                    <input type="email" placeholder="nim@mail.unej.ac.id"
+                                    <input type="email" name="email" placeholder="nim@mail.unej.ac.id"
                                         class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 dark:text-white dark:placeholder-slate-500 border-transparent focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none">
+                                    @error('email')
+                                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="space-y-2">
                                 <label
                                     class="text-sm font-bold text-slate-900 dark:text-slate-200 transition-colors">Subjek</label>
-                                <input type="text" placeholder="Tujuan pesan"
+                                <input type="text" name="subjek" placeholder="Tujuan pesan"
                                     class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 dark:text-white dark:placeholder-slate-500 border-transparent focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none">
+                                @error('subjek')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="space-y-2">
                                 <label
                                     class="text-sm font-bold text-slate-900 dark:text-slate-200 transition-colors">Pesan</label>
-                                <textarea rows="4" placeholder="Tuliskan pesan Anda..."
+                                <textarea rows="4" name="pesan" placeholder="Tuliskan pesan Anda..."
                                     class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 dark:text-white dark:placeholder-slate-500 border-transparent focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none resize-none"></textarea>
+                                @error('pesan')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
-                            <button type="submit"
+                            <button type="submit" onclick="return confirm('Apakah Anda yakin ingin mengirim pesan ini?')"
                                 class="w-full py-4 rounded-2xl bg-orange-600 text-white font-bold hover:bg-orange-500 hover:shadow-lg hover:shadow-orange-500/30 transition-all transform hover:-translate-y-1">
                                 Kirim Pesan Sekarang
                             </button>

@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+
 class CekAdmin
 {
     /**
@@ -15,10 +16,14 @@ class CekAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role === 'admin') {
-            return $next($request);
+
+        if (!Auth::check()) {
+            return redirect()->route('login');
         }
 
-        abort(403, 'Akses Ditolak! Halaman ini hanya untuk Administrator.');
+        if (Auth::user()->role === 'admin') {
+            return $next($request);
+        }
+        return redirect()->route('home')->with('error', 'Anda tidak memiliki akses ke halaman admin.');
     }
 }

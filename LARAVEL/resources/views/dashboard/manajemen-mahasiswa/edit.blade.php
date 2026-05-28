@@ -21,92 +21,69 @@
                     Kembali
                 </a>
             </header>
-
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <form action="{{ route('manajemen-mahasiswa.update', $mahasiswa->id) }}" enctype="multipart/form-data" method="POST"
+                <form action="{{ route('manajemen-mahasiswa.update', $mahasiswa->id) }}" method="POST"
                     class="p-8 space-y-6">
                     @csrf
                     @method('PUT')
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {{-- Foto Profil (Read-Only) --}}
                         <div class="space-y-2 md:col-span-2">
-                            <label for="foto" class="text-sm font-semibold text-slate-700">Foto Profil</label>
-                            <input type="file" name="foto" id="foto"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-4 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100 transition-all @error('foto') border-red-500 @enderror ">
-                            <p class="text-[10px] text-slate-400">*Format: JPG, PNG. Maksimal 2MB.</p>
-                        </div>
-                        @error('foto')
-                            <p class="text-xs text-red-500">{{ $message }}</p>
-                        @enderror
-                        {{-- Nama Lengkap --}}
-                        <div class="space-y-2">
-                            <label for="nama" class="text-sm font-semibold text-slate-700">Nama Lengkap</label>
-                            <input type="text" name="nama" id="nama" value="{{ old('nama', $mahasiswa->nama) }}"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 transition-all @error('nama') border-red-400 @enderror"
-                                required>
-                            @error('nama')
-                                <p class="text-xs text-red-500">{{ $message }}</p>
-                            @enderror
+                            <label class="text-sm font-semibold text-slate-700">Foto Profil</label>
+                            <div
+                                class="w-32 h-32 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-4xl font-bold border-4 border-white shadow-sm overflow-hidden">
+                                @if ($mahasiswa->foto)
+                                    <img src="{{ asset('storage/' . $mahasiswa->foto) }}" alt="Foto Mahasiswa"
+                                        class="w-full h-full object-cover">
+                                @else
+                                    {{ strtoupper(substr($mahasiswa->nama, 0, 1)) }}
+                                @endif
+                            </div>
                         </div>
 
-                        {{-- NIM --}}
+                        {{-- Nama Lengkap (Read-Only dengan style disabled) --}}
                         <div class="space-y-2">
-                            <label for="nim" class="text-sm font-semibold text-slate-700">NIM</label>
-                            <input type="text" name="nim" id="nim" value="{{ old('nim', $mahasiswa->nim) }}"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 transition-all @error('nim') border-red-400 @enderror"
-                                required>
-                            @error('nim')
-                                <p class="text-xs text-red-500">{{ $message }}</p>
-                            @enderror
+                            <label class="text-sm font-semibold text-slate-500">Nama Lengkap</label>
+                            <input type="text" value="{{ $mahasiswa->name }}" disabled
+                                class="w-full bg-slate-100 border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-500 cursor-not-allowed">
                         </div>
 
-                        {{-- Fakultas --}}
+                        {{-- NIM (Read-Only) --}}
                         <div class="space-y-2">
-                            <label for="fakultas" class="text-sm font-semibold text-slate-700">Fakultas</label>
-                            <select name="fakultas" id="fakultas"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 transition-all @error('fakultas') border-red-400 @enderror"
-                                required>
-                                @foreach (['Ilmu Komputer', 'Teknik', 'Ekonomi dan Bisnis', 'Kedokteran', 'Hukum', 'MIPA'] as $f)
-                                    <option value="{{ $f }}"
-                                        {{ old('fakultas', $mahasiswa->fakultas) == $f ? 'selected' : '' }}>
-                                        {{ $f }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('fakultas')
-                                <p class="text-xs text-red-500">{{ $message }}</p>
-                            @enderror
+                            <label class="text-sm font-semibold text-slate-500">NIM</label>
+                            <input type="text" value="{{ $mahasiswa->nim }}" disabled
+                                class="w-full bg-slate-100 border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-500 cursor-not-allowed">
                         </div>
 
-                        {{-- Email --}}
+                        {{-- Fakultas (Read-Only) --}}
                         <div class="space-y-2">
-                            <label for="email" class="text-sm font-semibold text-slate-700">Email Institusi</label>
-                            <input type="email" name="email" id="email"
-                                value="{{ old('email', $mahasiswa->email) }}"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 transition-all @error('email') border-red-400 @enderror"
-                                required>
-                            @error('email')
-                                <p class="text-xs text-red-500">{{ $message }}</p>
-                            @enderror
+                            <label class="text-sm font-semibold text-slate-500">Fakultas</label>
+                            <input type="text" value="{{ $mahasiswa->fakultas }}" disabled
+                                class="w-full bg-slate-100 border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-500 cursor-not-allowed">
                         </div>
 
-                        {{-- Status Keanggotaan --}}
-                        <div class="space-y-2 md:col-span-2">
-                            <label class="text-sm font-semibold text-slate-700">Status Keanggotaan</label>
+                        {{-- Email (Read-Only) --}}
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-slate-500">Email Institusi</label>
+                            <input type="email" value="{{ $mahasiswa->email }}" disabled
+                                class="w-full bg-slate-100 border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-500 cursor-not-allowed">
+                        </div>
+
+                        {{-- Status Keanggotaan (Satu-satunya yang BISA DIEDIT) --}}
+                        <div class="space-y-2 md:col-span-2 bg-orange-50/50 p-6 rounded-2xl border border-orange-100">
+                            <label class="text-sm font-bold text-orange-800">Ubah Status Keanggotaan</label>
                             <div class="flex flex-wrap gap-6 pt-2">
-                                @foreach (['Aktif', 'Cuti', 'Suspended', 'Lulus'] as $stat)
+                                @foreach (['Aktif', 'Suspended', 'Lulus'] as $stat)
                                     <label class="flex items-center gap-2 cursor-pointer group">
                                         <input type="radio" name="status" value="{{ $stat }}"
                                             class="w-4 h-4 text-orange-500 border-slate-300 focus:ring-orange-200"
                                             {{ old('status', $mahasiswa->status) == $stat ? 'checked' : '' }}>
                                         <span
-                                            class="text-sm text-slate-600 group-hover:text-slate-800 transition-colors">{{ $stat }}</span>
+                                            class="text-sm text-slate-700 font-medium group-hover:text-orange-600 transition-colors">{{ $stat }}</span>
                                     </label>
                                 @endforeach
                             </div>
-                            @error('status')
-                                <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
-                            @enderror
                         </div>
                     </div>
 
@@ -114,7 +91,7 @@
                         <button type="submit"
                             class="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full text-sm font-bold transition shadow-lg shadow-orange-200 active:scale-95">
                             <i data-lucide="refresh-cw" class="w-4 h-4"></i>
-                            Perbarui Data
+                            Simpan Perubahan Status
                         </button>
                     </div>
                 </form>

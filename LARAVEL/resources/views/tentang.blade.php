@@ -48,7 +48,7 @@
                             <div
                                 class="absolute inset-0 bg-gradient-to-tr from-orange-100 to-slate-50 dark:from-slate-800 dark:to-slate-700 transition-colors">
                                 <img src="{{ asset('tentang.jpg') }}" alt="Tentang"
-                                    class="w-full h-full object-cover mix-blend-overlay dark:mix-blend-normal opacity-90">
+                                    class="w-full h-full object-cover dark:mix-blend-normal opacity-90">
                             </div>
                         </div>
                     </div>
@@ -100,78 +100,6 @@
         </div>
     </section>
 
-    <section
-        class="py-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4 transition-colors">Eksplorasi Ruang
-                    LIBMATE</h2>
-
-                @if (isset($lantai) && isset($kapasitas))
-                    <div
-                        class="inline-block bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 px-4 py-2 rounded-full font-medium text-sm transition-colors">
-                        Menampilkan hasil filter: Lantai {{ $lantai }} | Kapasitas Minimal {{ $kapasitas }} Orang
-                        <a href="/tentang" class="ml-2 underline hover:text-orange-900 dark:hover:text-orange-300">Reset</a>
-                    </div>
-                @else
-                    <p class="text-slate-600 dark:text-slate-400 transition-colors">Temukan ruang diskusi yang dirancang
-                        khusus untuk mendukung produktivitas Anda.</p>
-                @endif
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @forelse ($ruangans as $ruang)
-                    <div
-                        class="bg-slate-50 dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
-                        <div class="aspect-video bg-slate-200 dark:bg-slate-700 relative overflow-hidden transition-colors">
-                            <img src="{{ asset('/perpus/' . $ruang->gambar) }}" alt="{{ $ruang->nama_ruang }}"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div
-                                class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-orange-600 dark:text-orange-400 shadow-sm transition-colors">
-                                Lantai {{ $ruang->lantai }}
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div
-                                class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider transition-colors">
-                                {{ $ruang->kategori }}
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors">
-                                {{ $ruang->nama_ruang }}</h3>
-                            <div
-                                class="flex items-center gap-2 text-slate-600 dark:text-slate-300 text-sm mb-4 transition-colors">
-                                <svg class="w-5 h-5 text-orange-500 dark:text-orange-400" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                    </path>
-                                </svg>
-                                Kapasitas {{ $ruang->kapasitas }} Orang
-                            </div>
-                            <a href="{{ route('ruangan.show', ['lantai' => $ruang->lantai, 'id' => $ruang->id]) }}"
-                                class="block w-full text-center py-2.5 rounded-xl bg-orange-900 dark:bg-orange-800 text-white font-medium hover:bg-orange-500 dark:hover:bg-orange-600 transition-colors">
-                                Detail Ruangan
-                            </a>
-                        </div>
-                    </div>
-                @empty
-                    <div
-                        class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 transition-colors">
-                        <svg class="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto mb-3" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                            </path>
-                        </svg>
-                        <h3 class="text-lg font-medium text-slate-900 dark:text-white transition-colors">Tidak ada ruangan
-                            yang sesuai</h3>
-                        <p class="text-slate-500 dark:text-slate-400 mt-1 transition-colors">Coba cari di lantai atau
-                            kapasitas yang berbeda.</p>
-                    </div>
-                @endforelse
-            </div>
-        </div>
-    </section>
 
     <section class="py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -22,9 +22,5 @@ class TentangController extends Controller
         return view('tentang', compact('ruangans', 'lantai', 'kapasitas'));
     }
 
-    public function show($lantai, $id)
-    {
-        $ruangan = Ruangan::where('lantai', $lantai)->where('id', $id)->firstOrFail();
-        return view('detail', compact('ruangan'));
-    }
+  
 }

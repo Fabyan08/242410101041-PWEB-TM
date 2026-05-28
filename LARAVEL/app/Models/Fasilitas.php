@@ -12,6 +12,7 @@ class Fasilitas extends Model
 
     public function ruangans(): BelongsToMany
     {
-        return $this->belongsToMany(Ruangan::class, 'fasilitas_ruangan');
+        return $this->belongsToMany(Ruangan::class, 'fasilitas_ruangan', 'fasilitas_id', 'ruangan_id')
+            ->withTimestamps();
     }
 }

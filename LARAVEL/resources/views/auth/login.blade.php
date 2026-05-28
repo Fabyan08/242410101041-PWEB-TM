@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="icon" href="{{ asset('icon.png') }}" type="image/x-icon" />
 
     <style>
         body {
@@ -60,7 +61,7 @@
                     <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email
                         Universitas</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                        placeholder="nim@student.unej.ac.id"
+                        placeholder="nim@mail.unej.ac.id"
                         class="w-full px-4 py-3 rounded-xl bg-white/50 border @error('email') border-red-500 @else border-slate-200 @enderror text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300">
 
                     @error('email')
@@ -86,24 +87,22 @@
                     @enderror
                 </div>
 
-                <div class="flex items-center">
-                    <input id="remember_me" type="checkbox" name="remember"
-                        class="w-4 h-4 rounded border-slate-300 text-orange-500 focus:ring-orange-500 bg-white/50 cursor-pointer">
-                    <label for="remember_me"
-                        class="ml-2 block text-sm text-slate-600 cursor-pointer hover:text-slate-900 transition-colors">
-                        Ingat saya di perangkat ini
-                    </label>
-                </div>
+                <div class="flex flex-col gap-4 mt-6">
 
-                <button type="submit"
-                    class="w-full py-3.5 px-4 rounded-xl text-white font-bold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 shadow-[0_8px_20px_-6px_rgba(249,115,22,0.5)] transform hover:-translate-y-1 transition-all duration-300">
-                    Masuk ke Sistem
-                </button>
+                    <button type="submit"
+                        class="w-full py-3.5 px-4 rounded-xl text-white font-bold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 shadow-[0_8px_20px_-6px_rgba(249,115,22,0.5)] transform hover:-translate-y-1 transition-all duration-300">
+                        Masuk ke Sistem
+                    </button>
+                    <a href="{{ route('register') }}"
+                        class="text-center text-sm font-semibold text-slate-500 hover:text-orange-500 transition-colors duration-200">
+                        Daftar akun baru
+                    </a>
+                </div>
             </form>
 
             <div class="mt-8 text-center">
                 <p class="text-xs text-slate-500">
-                    &copy; {{ date('Y') }} Fasilkom Universitas Jember.
+                    &copy; {{ date('Y') }} Universitas Jember.
                 </p>
             </div>
         </div>
