@@ -369,6 +369,56 @@
     @endauth
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // tanggal merah
+            const inputTanggal = document.getElementById('tanggal_pinjam');
+
+            // Daftar Hari Libur Nasional & Cuti Bersama Tahun 2026 (Pastikan format YYYY-MM-DD)
+            const tanggalMerah2026 = [
+                '2026-01-01', // Tahun Baru Masehi
+                '2026-02-17', // Isra Mikraj
+                '2026-02-19', // Tahun Baru Imlek
+                '2026-03-20', // Hari Raya Nyepi
+                '2026-03-21', // Idul Fitri
+                '2026-03-22', // Idul Fitri
+                '2026-04-03', // Wafat Yesus Kristus
+                '2026-05-01', // Hari Buruh
+                '2026-05-14', // Kenaikan Yesus Kristus
+                '2026-05-28', // Idul Adha
+                '2026-05-31', // Hari Raya Waisak
+                '2026-06-01', // Hari Lahir Pancasila
+                '2026-06-16', // Tahun Baru Islam
+                '2026-08-17', // Hari Kemerdekaan RI
+                '2026-08-26', // Maulid Nabi Muhammad SAW
+                '2026-12-25' // Hari Raya Natal
+            ];
+
+            function validateDate() {
+                if (!inputTanggal.value) return;
+
+                const selectedDate = new Date(inputTanggal.value);
+                const dayOfWeek = selectedDate.getDay(); // 0 = Minggu, 6 = Sabtu
+                const dateString = inputTanggal.value; // Nilai asli dari <input type="date"> selalu YYYY-MM-DD
+
+                // 1. Validasi Akhir Pekan (Sabtu & Minggu)
+                if (dayOfWeek === 0 || dayOfWeek === 6) {
+                    alert(
+                        'Maaf, pemesanan ruang diskusi perpustakaan tidak tersedia di akhir pekan (Sabtu & Minggu).');
+                    inputTanggal.value = ''; // Kosongkan input
+                    return;
+                }
+
+                // 2. Validasi Tanggal Merah
+                if (tanggalMerah2026.includes(dateString)) {
+                    alert(
+                        'Maaf, perpustakaan tutup pada tanggal merah/hari libur nasional. Silakan pilih tanggal lain.');
+                    inputTanggal.value = ''; // Kosongkan input
+                    return;
+                }
+            }
+
+            inputTanggal.addEventListener('change', validateDate);
+
+
             const inputMulai = document.getElementById('jam_mulai');
             const inputSelesai = document.getElementById('jam_selesai');
 

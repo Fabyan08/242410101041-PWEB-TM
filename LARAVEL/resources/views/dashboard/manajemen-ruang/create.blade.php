@@ -175,6 +175,7 @@
     </div>
 
     <script>
+        // Fungsi untuk membuka dan menutup modal fasilitas
         function toggleFasilitasModal(modalID) {
             const modal = document.getElementById(modalID);
 
@@ -200,7 +201,7 @@
                 }, 300);
             }
         }
-
+        // Fungsi untuk menambahkan fasilitas baru melalui AJAX
         function tambahFasilitas() {
             let input = document.getElementById('input_nama_fasilitas');
             let namaFasilitas = input.value;
@@ -210,7 +211,7 @@
                 alert('Nama fasilitas tidak boleh kosong!');
                 return;
             }
-
+            // Kirim permintaan AJAX untuk menambahkan fasilitas baru
             fetch('{{ route('api.fasilitas.store') }}', {
                     method: 'POST',
                     headers: {
@@ -244,7 +245,7 @@
                 .catch(error => console.error('Error:', error));
         }
 
-
+// fungsi untuk menghapus fasilitas melalui AJAX
         function hapusFasilitas(id) {
             if (!confirm('Yakin ingin menghapus fasilitas ini?')) return;
 

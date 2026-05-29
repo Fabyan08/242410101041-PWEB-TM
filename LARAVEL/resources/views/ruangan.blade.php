@@ -15,6 +15,7 @@
             </p>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {{-- pengecekan status sesuai kondisi user (mahasiswa) --}}
             @if (Auth::check() == false)
                 <div
                     class="mb-10 bg-white dark:bg-slate-800 p-4 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col md:flex-row gap-4 justify-between items-center transition-colors">
@@ -298,7 +299,7 @@
         const paginationWrapper = document.getElementById('pagination-wrapper');
 
         let debounceTimer;
-
+        // Fungsi untuk mengambil data secara AJAX dan memperbarui konten grid serta pagination
         function fetchData(url) {
             gridContainer.style.opacity = '0.5';
             fetch(url, {
@@ -329,6 +330,7 @@
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
         });
+        // Pasang debounce pada input pencarian untuk mengurangi jumlah permintaan AJAX saat pengguna mengetik cepat
         searchInput.addEventListener('input', function() {
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(() => {
@@ -342,6 +344,7 @@
                 fetchData(url.toString());
             }, 500);
         });
+        // Pasang listener untuk tombol reset pencarian agar mengembalikan ke tampilan awal tanpa filter
         document.addEventListener('click', function(e) {
             if (e.target && e.target.id === 'btn-reset-search') {
                 e.preventDefault();
