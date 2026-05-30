@@ -3,7 +3,7 @@
 **LibMate** adalah platform sistem pemesanan ruang terintegrasi berbasis web yang dirancang khusus untuk mendigitalkan proses peminjaman ruang diskusi di Perpustakaan Universitas Jember. Sistem ini memungkinkan mahasiswa untuk mencari, melihat katalog, dan memesan ruang dari mana saja secara *real-time*, memangkas birokrasi manual, dan menciptakan ekosistem akademik yang efisien.
 
 **Dibuat oleh:** Fabyan Yastika Permana (NIM: 242410101041)
-**Demo Video:** [Tonton di YouTube](https://youtu.be/Z_yXaq44cv8 )
+**Demo Video:** [Tonton di YouTube]( https://youtu.be/GMRoPqdP6CE )
 **Live Website:** [libmate.fabyanyastika.my.id](https://libmate.fabyanyastika.my.id/)
 
 ---
