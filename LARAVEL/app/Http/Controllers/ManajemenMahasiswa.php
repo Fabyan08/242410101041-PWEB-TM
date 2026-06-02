@@ -16,7 +16,7 @@ class ManajemenMahasiswa extends Controller
         $mahasiswa = User::query()->where('role', 'mahasiswa')
             ->when($search, function ($query, $search) {
                 return $query->where(function ($q) use ($search) {
-                    $q->where('nama', 'like', "%{$search}%")
+                    $q->where('name', 'like', "%{$search}%")
                         ->orWhere('nim', 'like', "%{$search}%");
                 });
             })->paginate(10);

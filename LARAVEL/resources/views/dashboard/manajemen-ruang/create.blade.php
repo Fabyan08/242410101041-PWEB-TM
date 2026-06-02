@@ -27,27 +27,27 @@
                     <div>
                         <label class="block text-sm font-semibold text-slate-700 mb-2">Foto Ruangan</label>
                         <div class="flex items-center w-full">
-                            <label for="gambar"
-                                class="flex items-center justify-center px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-l-xl cursor-pointer hover:bg-slate-100 transition-colors text-sm font-semibold text-slate-600">
-                                Choose File
-                            </label>
-                            <input type="file" required id="gambar" name="gambar" class="hidden"
-                                onchange="document.getElementById('file-name').textContent = this.files[0].name">
-                            <div class="flex-1 px-4 py-2.5 border border-l-0 border-slate-200 rounded-r-xl text-sm text-slate-500 bg-white truncate"
-                                id="file-name">
-                                No file chosen
-                            </div>
+                            <label for="gambar"></label>
+                            <input type="file" required required id="gambar" name="gambar"
+                                class="flex-1 px-4 py-2.5 border border-l-0 border-slate-200 rounded-r-xl text-sm text-slate-500 bg-white truncate">
+
                         </div>
                         <p class="text-[11px] text-slate-400 mt-1.5">*Format: JPG, PNG, WEBP. Maksimal 2MB.</p>
+                        @error('gambar')
+                            <p class="text-[11px] text-red-500 mt-1.5">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="nama_ruang" class="block text-sm font-semibold text-slate-700 mb-2">Nama
                                 Ruang</label>
-                            <input type="text" id="nama_ruang" name="nama_ruang" placeholder="Contoh: Ruang Tenang A"
-                                required
+                            <input type="text" value="{{ old('nama_ruang') }}" id="nama_ruang" name="nama_ruang"
+                                placeholder="Contoh: Ruang Tenang A" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm">
+                            @error('nama_ruang')
+                                <p class="text-[11px] text-red-500 mt-1.5">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
@@ -56,23 +56,34 @@
                             <select id="kategori" name="kategori" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm appearance-none">
                                 <option value="" disabled selected>Pilih Kategori</option>
-                                <option value="Ruang Diskusi">Ruang Diskusi</option>
-                                <option value="Ruang Meeting">Ruang Meeting</option>
-                                <option value="Ruang Tenang">Ruang Tenang</option>
+                                <option value="Ruang Diskusi" {{ old('kategori') == 'Ruang Diskusi' ? 'selected' : '' }}>
+                                    Ruang Diskusi</option>
+                                <option value="Ruang Meeting" {{ old('kategori') == 'Ruang Meeting' ? 'selected' : '' }}>
+                                    Ruang Meeting</option>
+                                <option value="Ruang Tenang" {{ old('kategori') == 'Ruang Tenang' ? 'selected' : '' }}>Ruang
+                                    Tenang</option>
                             </select>
+                            @error('kategori')
+                                <p class="text-[11px] text-red-500 mt-1.5">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
                             <label for="lantai" class="block text-sm font-semibold text-slate-700 mb-2">Lantai</label>
-                            <input type="number" id="lantai" name="lantai" placeholder="Contoh: 1" required
+                            <input type="number" value="{{ old('lantai') }}" id="lantai" name="lantai"
+                                placeholder="Contoh: 1" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm">
                         </div>
 
                         <div>
                             <label for="kapasitas" class="block text-sm font-semibold text-slate-700 mb-2">Kapasitas
                                 (Orang)</label>
-                            <input type="number" id="kapasitas" name="kapasitas" placeholder="Contoh: 4" required
+                            <input type="number" value="{{ old('kapasitas') }}" id="kapasitas" name="kapasitas"
+                                placeholder="Contoh: 4" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm">
+                            @error('kapasitas')
+                                <p class="text-[11px] text-red-500 mt-1.5">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
@@ -245,7 +256,7 @@
                 .catch(error => console.error('Error:', error));
         }
 
-// fungsi untuk menghapus fasilitas melalui AJAX
+        // fungsi untuk menghapus fasilitas melalui AJAX
         function hapusFasilitas(id) {
             if (!confirm('Yakin ingin menghapus fasilitas ini?')) return;
 

@@ -24,15 +24,21 @@
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="grid grid-cols-1 gap-6 mb-8">
                 <x-dashboard.stat-card judul="Total Ruang" ikon="door-open" warna="blue" id="stat-total-room"
                     nilai="{{ $totalRuang ?? 0 }}" />
-                <x-dashboard.stat-card judul="Tersedia" ikon="check-circle" warna="emerald" id="stat-available-room"
-                    nilai="{{ $tersediaRuang ?? 0 }}" />
-                <x-dashboard.stat-card judul="Sedang Dipakai" ikon="user-check" warna="orange" id="stat-occupied-room"
-                    nilai="{{ $sedangDipakaiRuang ?? 0 }}" />
             </div>
-
+            @if (session('status'))
+                <div
+                    class="mb-6 p-4 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-400 rounded-2xl flex items-center gap-3 text-sm font-semibold shadow-sm transition-colors">
+                    <svg class="w-5 h-5 text-emerald-500 dark:text-emerald-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm overflow-hidden">
                 <form action="{{ route('manajemen-ruang') }}" method="GET" class="relative w-full">
                     <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>

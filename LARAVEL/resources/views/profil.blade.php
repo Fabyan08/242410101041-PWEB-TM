@@ -19,6 +19,17 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('success'))
+                <div
+                    class="mb-6 p-4 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-400 rounded-2xl flex items-center gap-3 text-sm font-semibold shadow-sm transition-colors">
+                    <svg class="w-5 h-5 text-emerald-500 dark:text-emerald-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    {{ session('success') }}
+                </div>
+            @endif
 
             <div class="grid grid-cols-1 items-start md:grid-cols-2 gap-6 mb-6">
                 <div

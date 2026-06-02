@@ -16,18 +16,6 @@
                     </p>
                 </div>
 
-                <div class="flex items-center gap-4 w-full md:w-auto">
-                    <div class="relative w-full md:w-64">
-                        <i data-lucide="search"
-                            class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400"></i>
-                        <input type="text" placeholder="Cari sesuatu..."
-                            class="w-full bg-white border-none rounded-full py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 shadow-sm text-slate-600 placeholder-slate-400" />
-                    </div>
-                    <button class="bg-white p-2.5 rounded-full shadow-sm text-slate-500 hover:text-orange-400 relative">
-                        <i data-lucide="bell" class="w-5 h-5"></i>
-                        <span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-                    </button>
-                </div>
             </header>
 
             <div
